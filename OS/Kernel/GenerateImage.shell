@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+KERNEL_HDD="$1"
+KERNEL="$2"
+LIMINE_CFG="$3"
+
+rm -f "$KERNEL_HDD"
+
+dd if=/dev/zero bs=1M count=0 seek=64 of="$KERNEL_HDD"
+parted -s "$KERNEL_HDD" mklabel gpt
+parted -s "$KERNEL_HDD" mkpart primary 2048s 100%
+echfs-utils -g -p0 "$KERNEL_HDD" quick-format 512
+echfs-utils -g -p0 "$KERNEL_HDD" import "$KERNEL" Kernel
+echfs-utils -g -p0 "$KERNEL_HDD" import "$LIMINE_CFG" limine.cfg
+echfs-utils -g -p0 "$KERNEL_HDD" import /home/jpontaoski/kde/usr/share/limine/limine.sys limine.sys
+limine-install "$KERNEL_HDD"

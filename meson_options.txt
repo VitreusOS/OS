@@ -1,0 +1,1 @@
+option('architecture', type : 'combo', choices: ['stivale2-amd64'], description: 'The architecture of image to build.', value: 'stivale2-amd64')
