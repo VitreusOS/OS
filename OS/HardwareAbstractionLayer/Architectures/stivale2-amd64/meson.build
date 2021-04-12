@@ -4,6 +4,7 @@ files = [
     'IDT.cpp',
 
     'HALImpl/Debug.cpp',
+    'HALImpl/Graphics.cpp',
 ]
 
 asm_files = [

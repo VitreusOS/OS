@@ -1,6 +1,10 @@
 #ifndef __STIVALE__STIVALE2_H__
 #define __STIVALE__STIVALE2_H__
 
+#ifdef __cplusplus
+#define cpp
+#endif
+
 #include <stdint.h>
 
 struct stivale2_tag {
@@ -27,6 +31,11 @@ struct stivale2_header_tag_framebuffer {
     uint16_t framebuffer_width;
     uint16_t framebuffer_height;
     uint16_t framebuffer_bpp;
+
+#ifdef cpp
+    static const long Tag = STIVALE2_HEADER_TAG_FRAMEBUFFER_ID;
+#endif
+
 } __attribute__((packed));
 
 #define STIVALE2_HEADER_TAG_SMP_ID 0x1ab015085f3273df
@@ -34,6 +43,10 @@ struct stivale2_header_tag_framebuffer {
 struct stivale2_header_tag_smp {
     struct stivale2_tag tag;
     uint64_t flags;
+
+#ifdef cpp
+    static const long Tag = STIVALE2_HEADER_TAG_SMP_ID;
+#endif
 } __attribute__((packed));
 
 #define STIVALE2_HEADER_TAG_5LV_PAGING_ID 0x932f477032007e8f
@@ -56,6 +69,10 @@ struct stivale2_struct {
 struct stivale2_struct_tag_cmdline {
     struct stivale2_tag tag;
     uint64_t cmdline;
+
+#ifdef cpp
+    static const long Tag = STIVALE2_STRUCT_TAG_CMDLINE_ID;
+#endif
 } __attribute__((packed));
 
 #define STIVALE2_STRUCT_TAG_MEMMAP_ID 0x2187f79e8612de07
@@ -81,6 +98,10 @@ struct stivale2_struct_tag_memmap {
     struct stivale2_tag tag;
     uint64_t entries;
     struct stivale2_mmap_entry memmap[];
+
+#ifdef cpp
+    static const long Tag = STIVALE2_STRUCT_TAG_MEMMAP_ID;
+#endif
 } __attribute__((packed));
 
 #define STIVALE2_STRUCT_TAG_FRAMEBUFFER_ID 0x506461d2950408fa
@@ -103,6 +124,10 @@ struct stivale2_struct_tag_framebuffer {
     uint8_t  green_mask_shift;
     uint8_t  blue_mask_size;
     uint8_t  blue_mask_shift;
+
+#ifdef cpp
+    static const long Tag = STIVALE2_STRUCT_TAG_FRAMEBUFFER_ID;
+#endif
 } __attribute__((packed));
 
 #define STIVALE2_STRUCT_TAG_FB_MTRR_ID 0x6bc1a78ebe871172

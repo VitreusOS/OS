@@ -65,7 +65,6 @@ void init_gdt(void)
     reloadSegments();
     loadIDT();
     asm volatile ("cli");
-    asm volatile ("int3");
 }
 
 void init_pic(void)
