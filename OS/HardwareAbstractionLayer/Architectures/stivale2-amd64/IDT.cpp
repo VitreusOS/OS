@@ -135,9 +135,7 @@ static inline uint8_t inb(uint16_t port)
 {
     HAL::Debug dbg;
 
-    dbg << "interrupt! " << int(registers.interruptNumber);
-    dbg << " error code " << int(registers.errorCode);
-    dbg << "\n";
+    dbg << registers;
 }
 
 void ISRHandler(Registers registers)
