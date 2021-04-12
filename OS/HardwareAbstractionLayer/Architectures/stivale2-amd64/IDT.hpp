@@ -13,7 +13,7 @@ struct Registers
 
 #include "Debug.hpp"
 
-HAL::Debug& operator<<(HAL::Debug& dbg, Registers& reg)
+inline HAL::Debug& operator<<(HAL::Debug& dbg, Registers& reg)
 {
     dbg << "\n";
     dbg << "r15\tr14\tr13\tr12\tr11\tr10\tr9\tr8\trbp\trrsp\trsi\trdi\trdx\trcx\trbx\trax\n";
