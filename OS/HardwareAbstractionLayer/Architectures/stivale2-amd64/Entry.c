@@ -3,6 +3,8 @@
 
 #include "ExternalHeaders/Stivale2.h"
 
+#include "GDT.h"
+
 // We need to tell the stivale bootloader where we want our stack to be.
 // We are going to allocate our stack as an uninitialised array in .bss.
 static uint8_t stack[4096];
@@ -55,5 +57,7 @@ extern void Main(void);
 
 // The following will be our kernel's entry point.
 void _start(struct stivale2_struct *stivale2_struct) {
+    init_gdt();
+
     Main();
 }
