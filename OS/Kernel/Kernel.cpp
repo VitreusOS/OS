@@ -33,8 +33,8 @@ void Main() {
         for (auto i = 0U; i < (sizeof(a) / sizeof(HAL::Color)); i++) {
             gfx.drawRect(HAL::Rect{
                 .size = HAL::Size {
-                    .h = sz.h,
-                    .w = sz.w
+                    .w = sz.w,
+                    .h = sz.h
                 },
                 .pos = HAL::Pos {
                     .x = 0,

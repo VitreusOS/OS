@@ -23,11 +23,11 @@ Size Graphics::size() const
 
 void Graphics::setPixel(Pos p, Color c)
 {
-    auto base = (((fb->framebuffer_width * p.y) + (p.x)) * fb->framebuffer_bpp)/8;
+    auto base = (fb->framebuffer_pitch/4 * p.y) + p.x;
 
-    volatile uint8_t* data = (uint8_t*)(void*)fb->framebuffer_addr;
+    volatile uint32_t* data = (uint32_t*)(void*)fb->framebuffer_addr;
 
-    data[base] = c.r;
-    data[base+1] = c.g;
-    data[base+2] = c.b;
+    data[base] = (c.r << fb->red_mask_shift)
+                +(c.g << fb->green_mask_shift)
+                +(c.b << fb->blue_mask_shift);
 }

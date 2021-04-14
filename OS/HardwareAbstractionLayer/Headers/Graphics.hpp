@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Debug.hpp"
 #include <stdint.h>
 
 namespace HAL
@@ -34,7 +33,7 @@ constexpr Color c12 = {146, 110, 228};
 
 struct Size
 {
-    uint64_t h, w;
+    uint64_t w, h;
 };
 
 struct Pos
