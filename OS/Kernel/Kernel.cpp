@@ -14,12 +14,33 @@ void Main() {
 
     debugger << "\n\t(" << sz.h << ", " << sz.w << ")\n";
 
-    gfx.setPixel({0, 0}, HAL::Colors::white);
-    gfx.setPixel({1, 0}, HAL::Colors::white);
-    gfx.setPixel({2, 0}, HAL::Colors::white);
-    gfx.setPixel({3, 0}, HAL::Colors::white);
+    HAL::Color a[] = {
+        HAL::Colors::c1,
+        HAL::Colors::c2,
+        HAL::Colors::c3,
+        HAL::Colors::c4,
+        HAL::Colors::c5,
+        HAL::Colors::c6,
+        HAL::Colors::c7,
+        HAL::Colors::c8,
+        HAL::Colors::c9,
+        HAL::Colors::c10,
+        HAL::Colors::c11,
+        HAL::Colors::c12,
+    };
 
     while (true) {
-        asm volatile("hlt");
+        for (auto i = 0U; i < (sizeof(a) / sizeof(HAL::Color)); i++) {
+            gfx.drawRect(HAL::Rect{
+                .size = HAL::Size {
+                    .h = sz.h,
+                    .w = sz.w
+                },
+                .pos = HAL::Pos {
+                    .x = 0,
+                    .y = 0,
+                },
+            }, a[i]);
+        }
     }
 }
