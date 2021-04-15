@@ -124,9 +124,9 @@ void loadIDT() {
 
 [[clang::optnone]] void ISRHandlerImpl(Registers& registers)
 {
-    HAL::Debug dbg;
+    // HAL::Debug dbg;
 
-    dbg << registers;
+    // dbg << registers;
 }
 
 void ISRHandler(Registers registers)

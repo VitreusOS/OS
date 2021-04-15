@@ -5,6 +5,7 @@ files = [
 
     'HALImpl/Debug.cpp',
     'HALImpl/Graphics.cpp',
+    'HALImpl/Allocator.cpp',
 ]
 
 asm_files = [

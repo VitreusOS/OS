@@ -2,10 +2,13 @@
 #include "Graphics.hpp"
 #include "VitreusCorConfig.h"
 
+#include "Allocator.hpp"
 #include "Kernel.hpp"
 
-void Main() {
+[[clang::optnone]] void Main() {
     HAL::Debug debugger;
+
+    HAL::Allocator::init();
 
     debugger << "Hi, I'm VitreusCore running on the following architecture: " << Architecture;
 
