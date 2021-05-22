@@ -45,6 +45,10 @@ struct Rect
 {
     Size size;
     Pos pos;
+
+    Rect(uint64_t x, uint64_t y, uint64_t w, uint64_t h) : size{w,h}, pos{x,y}
+    {
+    }
 };
 
 class Graphics

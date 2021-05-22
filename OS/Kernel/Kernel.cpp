@@ -5,6 +5,16 @@
 #include "Allocator.hpp"
 #include "Kernel.hpp"
 
+auto DrawBackground(HAL::Graphics& it, const HAL::Size& sz)
+{
+    it.drawRect(HAL::Rect(0, 0, sz.w, sz.h), HAL::Color{ 144, 144, 144 });
+
+    it.drawRect(HAL::Rect(0, 0, sz.w, 1), HAL::Color{ 255, 255, 255 });
+    it.drawRect(HAL::Rect(0, 1, sz.w, 17), HAL::Color{ 221, 221, 221 });
+    it.drawRect(HAL::Rect(0, 18, sz.w, 1), HAL::Color{ 153, 153, 153 });
+    it.drawRect(HAL::Rect(0, 19, sz.w, 1), HAL::Color{ 18, 18, 18 });
+}
+
 [[clang::optnone]] void Main() {
     HAL::Debug debugger;
 
@@ -32,18 +42,8 @@
         HAL::Colors::c12,
     };
 
+    DrawBackground(gfx, sz);
+
     while (true) {
-        for (auto i = 0U; i < (sizeof(a) / sizeof(HAL::Color)); i++) {
-            gfx.drawRect(HAL::Rect{
-                .size = HAL::Size {
-                    .w = sz.w,
-                    .h = sz.h
-                },
-                .pos = HAL::Pos {
-                    .x = 0,
-                    .y = 0,
-                },
-            }, a[i]);
-        }
     }
 }
