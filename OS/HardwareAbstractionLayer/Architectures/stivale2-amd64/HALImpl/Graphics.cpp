@@ -45,8 +45,8 @@ void Graphics::drawRect(Rect r, Color c)
     volatile uint32_t* data = (uint32_t*)(void*)fb->framebuffer_addr;
 
 #pragma clang loop vectorize(enable)
-    for (auto x = r.pos.x; x < r.pos.x + r.size.w; x++) {
-        for (auto y = r.pos.y; y < r.pos.y + r.size.h; y++) {
+    for (auto y = r.pos.y; y < r.pos.y + r.size.h; y++) {
+        for (auto x = r.pos.x; x < r.pos.x + r.size.w; x++) {
             const auto base = (fb->framebuffer_pitch/4 * y) + x;
 
             data[base] = ccolor(c);
