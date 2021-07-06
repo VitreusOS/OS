@@ -61,13 +61,7 @@ public:
     Size size() const;
 
     void setPixel(Pos p, Color c);
-    inline void drawRect(Rect r, Color c) {
-        for (auto x = r.pos.x; x < r.pos.x+r.size.w; x++) {
-            for (auto y = r.pos.y; y < r.pos.y+r.size.h; y++) {
-                setPixel(Pos{x, y}, c);
-            }
-        }
-    }
+    void drawRect(Rect r, Color c);
 };
 
 };

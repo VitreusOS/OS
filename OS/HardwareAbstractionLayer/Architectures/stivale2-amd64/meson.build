@@ -11,6 +11,7 @@ files = [
 asm_files = [
     'GDT.asm',
     'ISR.asm',
+    'SSE.asm',
 ]
 
 obj_files = assembler.process(asm_files)

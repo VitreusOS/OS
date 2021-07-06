@@ -5,6 +5,7 @@
 
 #include "GDT.h"
 #include "Shared.h"
+#include "SSE.h"
 
 // We need to tell the stivale bootloader where we want our stack to be.
 // We are going to allocate our stack as an uninitialised array in .bss.
@@ -71,6 +72,7 @@ void _start(struct stivale2_struct *stivale2_struct) {
     Information = *stivale2_struct;
 
     init_gdt();
+    setupSSE();
 
     Main();
 }
